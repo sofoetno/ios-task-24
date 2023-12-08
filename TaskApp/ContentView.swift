@@ -19,20 +19,6 @@ struct TodoTask: Identifiable {
     let taskColor: Int
 }
 
-//struct CustomProgressViewStyle: ProgressViewStyle {
-//    var innerHeight: CGFloat
-//
-//    func makeBody(configuration: Configuration) -> some View {
-//        VStack(spacing: 0) {
-//            configuration.label.frame(height: innerHeight)
-//
-//            RoundedRectangle(cornerRadius: 8)
-//                .frame(width: configuration.fractionCompleted ?? 0, height: 18)
-//                .foregroundColor(Color(red: 0.73, green: 0.51, blue: 0.87))
-//        }
-//    }
-//}
-
 struct ContentView: View {
     
     @State private var progress = 0.1
@@ -71,12 +57,12 @@ struct ContentView: View {
                     
                         .overlay (
                             Image("profileImage")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: 44, height: 44)
-                        .clipped()
-                        .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
-                                  )
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(width: 44, height: 44)
+                                .clipped()
+                                .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
+                        )
                     
                         .overlay {
                             GeometryReader { geometry in
@@ -167,7 +153,7 @@ struct ContentView: View {
                 .background(Color (red: 0.09, green: 0.09, blue: 0.09))
                 .cornerRadius(8)
                 .padding(.horizontal, 15)
-                    
+                
                 
                 VStack(alignment: .leading, spacing: 10) {
                     
@@ -188,13 +174,12 @@ struct ContentView: View {
                         }
                     }
                 }
-                    .padding(.vertical, 10)
-                    .padding(.horizontal, 20)
+                .padding(.vertical, 10)
+                .padding(.horizontal, 20)
             }
         }
         .frame(maxHeight: .infinity)
         .background(Color.black.ignoresSafeArea())
-        
     }
     
     func calculatePercentage() -> Int {
@@ -206,7 +191,6 @@ struct ContentView: View {
     func dailyTaskSlogan() -> String {
         incompleteTaskList.count == 0 ? "Mission completed Sofo <3" : "Keep working"
     }
-    
     
     func moveTask(singleTask: TodoTask) {
         if singleTask.isCompleted == true {

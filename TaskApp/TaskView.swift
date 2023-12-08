@@ -11,11 +11,10 @@ struct iOSCheckboxToggleStyle: ToggleStyle {
     func makeBody(configuration: Configuration) -> some View {
         Button(action: {
             configuration.isOn.toggle()
-
         }, label: {
             HStack {
                 Image(configuration.isOn ? "cheked" : "unchek")
-
+                
                 configuration.label
             }
         })
@@ -57,7 +56,7 @@ struct TaskView: View {
                 
                 moveTask(singleTask)
             }
-                
+            
         }
         .padding(.vertical, 12)
         .padding(.horizontal, 16)
@@ -70,7 +69,7 @@ struct TaskView: View {
                     .frame(width: 15, height: geometry.size.height)
                     .background(Color(hex: Int(singleTask.taskColor)))
                     .offset(x: 0, y: 0)
-                    
+                
                     .clipShape(
                         .rect(topLeadingRadius: 8, bottomLeadingRadius: 8)
                     )
@@ -84,9 +83,9 @@ struct TaskView: View {
                 topTrailingRadius: 8
             )
         )
-            
-    }
         
+    }
+    
 }
 
 extension UIColor {
